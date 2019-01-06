@@ -1,3 +1,4 @@
+{% load static %}
 <html lang="en">
 
 <head>
@@ -7,10 +8,41 @@
   <title>TrueLens</title>
   <meta name="description" content="TrueLens explorer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+  {% block head %}
+  {% endblock head %}
 </head>
 
 <body class="Site">
   <div class="Site-header">
+      <div class="eyecatcher">
+      </div>
+      <div class="ui stackable borderless main menu">
+         <div class="ui container topmenu">
+            <a href="/" class="header item">
+             <img class="ui image" src="{% static "img/lens.png" %}" width="40" height="40"/>&nbsp; <span class="logo">TrueLens</span>
+           </a>
+           <div class="ui dropdown item nomobile">
+         <div >Blockchain</div>
+           <i class="dropdown icon"></i>
+           <div class="menu">
+               <a class="item" href="/blocks" >Blocks</a>
+           </div>
+           </div>
+          <div class="item nomobile"><a href="/transactions" >Transactions</a></div>
+          <div class="item nomobile"><a href="/tokens" >Tokens</a></div>
+          <form class="header item nomobile" action="/search" method="post">
+           <div class="ui category search">
+             <div class="ui large icon input">
+               <input class="prompt" name="q" type="text" placeholder="Address, Hash, Token ...">
+               <input type="hidden" value="" name="type">
+               <i class="search icon"></i>
+             </div>
+             <div class="results"></div>
+           </div>
+          </form>
+         </div>
+       </div>
+      <div class="eyecatcherbottom"> </div>
   </div>
   <div class="Site-content">
     {%block content%}

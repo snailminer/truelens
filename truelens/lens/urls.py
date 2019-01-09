@@ -17,7 +17,9 @@ from django.contrib import admin
 from django.urls import path
 
 from lens.views import index
+from lens.views import block
 
 urlpatterns = [
-    path(r'', index.index, name='index'),
+    path('', index.index, name='index'),
+    path('blocks', block.block_list, name='block-list'),
 ]

@@ -12,3 +12,8 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
+
+from django.shortcuts import render
+
+def block_list(request):
+    return render(request, 'block_list.html')

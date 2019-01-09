@@ -1,0 +1,86 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<h1 class="ui dividing header"><small><i class="icon cubes"></i>BLOCKS</small></h1>
+
+<div>
+  <!--div class="ui vertical stripe segment" style="background: #f5f5f5;opacity: 0.7;">
+    <div class="ui stackable four column grid container">
+
+      <div class="ui center aligned column">
+        <div class="ui small small grey statistic">
+          <div class="value">
+            <small>{{stats.totalBlocks}}</small>
+          </div>
+          <div class="label">
+            Total blocks
+          </div>
+        </div>
+        </div>
+
+      <div class="ui center aligned column">
+        <div class="ui small small green statistic">
+          <div class="value">
+            <small>{{stats.totalBlocksConfirmed}</small>
+          </div>
+          <div class="label">
+            Blocks confirmed
+          </div>
+        </div>
+      </div>
+
+      <div class="ui center aligned column">
+        <div class="ui small yellow statistic">
+          <div class="value">
+            <small>{{stats.totalBlocks6h}}</small>
+          </div>
+          <div class="label">
+            Blocks Last 6h
+          </div>
+        </div>
+      </div>
+
+      <div class="ui center aligned column">
+        <div class="ui small orange statistic">
+          <div class="value">
+            <small>{{stats.totalBlocks24h}}</small>
+          </div>
+          <div class="label">
+            Blocks Last 24h
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div-->
+
+  <table class="ui striped table">
+    <thead>
+      <tr>
+        <th class="center aligned">Height</th>
+        <th class="center aligned">Transactions</th>
+        <th class="center aligned">Timestamp</th>
+        <th class="center aligned">Status</th>
+        <th class="center aligned">Producer</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for block in list.items%}
+      <tr class="center aligned">
+        <td><a href="/block/{{block.num}}">{{block.num}}</a></td>
+        <td>{{block.txCount}}</td>
+        <td><span class="timestamp">{{block.timestamp}}</span></td>
+        <td>{%if block.confirmed %}<span class="ui small green label">Confirmed</span>{%else%}<a class="ui small red label">Unconfirmed</a>{%endif%}</td>
+        <td><a href="/address/{{block.witnessAddress}}">{{block.witnessAddress}}</a></td>
+      </tr>
+      {%endfor%}
+    </tbody>
+   <tfoot>
+      <tr><th colspan="5">
+    </tr></tfoot>
+  </table>
+</div>
+
+{%endblock%}
+

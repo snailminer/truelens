@@ -2,9 +2,9 @@
 
 {% block content %}
 
-<h1 class="ui dividing header"><small><i class="icon cubes"></i>BLOCKS</small></h1>
 
-<div>
+<div class="ui container">
+  <h1 class="ui dividing header"><small><i class="icon cubes"></i>BLOCKS</small></h1>
   <!--div class="ui vertical stripe segment" style="background: #f5f5f5;opacity: 0.7;">
     <div class="ui stackable four column grid container">
 
@@ -55,7 +55,7 @@
     </div>
   </div-->
 
-  <table class="ui striped table">
+  <table class="ui striped small table">
     <thead>
       <tr>
         <th class="center aligned">Height</th>
@@ -76,9 +76,10 @@
       </tr>
       {%endfor%}
     </tbody>
-   <tfoot>
+    <tfoot>
       <tr><th colspan="5">
-    </tr></tfoot>
+      </tr>
+    </tfoot>
   </table>
 </div>
 
